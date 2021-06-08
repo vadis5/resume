@@ -1,0 +1,29 @@
+variables:
+  runTest: $[ne(variables['Build.SourceBranch'], 'refs/heads/develop2')]
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - script: |
+      cd helix-be
+      docker build -t helix.azurecr.io/helix-cms:$BUILD_SOURCEBRANCHNAME .
+    displayName: "Build Docker Image"
+
+  - script: |
+      docker run --name mysql -e MYSQL_ROOT_PASSWORD=helix -e MYSQL_DATABASE=helix -e MYSQL_USER=helix -e MYSQL_PASSWORD=helix -d -p 3306:3306 mysql:5.7
+      sleep 20
+      docker run --network host -e DB_HOST=127.0.0.1 -e DB_DATABASE=helix -e DB_USERNAME=root -e DB_PASSWORD=helix helix.azurecr.io/helix-cms:$BUILD_SOURCEBRANCHNAME php artisan migrate:refresh --seed
+    displayName: "Prepare ENV"
+    condition: eq(variables.runTest, true)
+
+  - script: |
+      docker run --network host -e DB_HOST=127.0.0.1 -e DB_DATABASE=helix -e DB_USERNAME=root -e DB_PASSWORD=helix helix.azurecr.io/helix-cms:$BUILD_SOURCEBRANCHNAME ./vendor/bin/phpunit -d memory_limit=-1 --testdox
+    displayName: "Run tests"
+    condition: eq(variables.runTest, true)
+
+  - script: |
+      docker login -u $ACR_USERNAME -p $ACR_PASSWORD $ACR_LOGIN_SERVER
+      docker push helix.azurecr.io/helix-cms:$BUILD_SOURCEBRANCHNAME
+      docker logout $ACR_LOGIN_SERVER
+    displayName: "Push docker image to registry"

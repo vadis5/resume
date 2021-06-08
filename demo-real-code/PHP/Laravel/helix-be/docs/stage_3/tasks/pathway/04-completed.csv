@@ -1,0 +1,42 @@
+Issue Type, Summary, Reporter, Priority, Assignee, Story Point, Time Estimate Hours
+"Story", "Create branch", "admin", "Medium", "admin", 0.5, 0.25
+"Story", "Create specification", "admin", "Medium", "admin", 2, 1
+"Story", "Planning", "admin", "Medium", "admin", 1, 0.5
+"Story", "Evaluation", "admin", "Medium", "admin", 0.5, 0.25
+"Story", "Create migrations", "admin", "Medium", "admin", 2, 1.0
+"Story", "Test migration in the main DB", "admin", "Medium", "admin", 0.5, 0.25
+"Story", "Create models", "admin", "Medium", "admin", 5, 2.5
+"Story", "Create seeds", "admin", "Medium", "admin", 3, 1.5
+"Story", "Test seeds in the main DB", "admin", "Medium", "admin", 1, 0.5
+"Story", "Create routes", "admin", "Medium", "admin", 1, 0.5
+"Story", "Create file with tests", "admin", "Medium", "admin", 1, 0.5
+"Story", "Test seeds in the test DB", "admin", "Medium", "admin", 2, 1.0
+"Story", "Create tests", "admin", "Medium", "admin", 13, 6.5
+"Story", "Create index 1", "admin", "Medium", "admin", 2, 1
+"Story", "Create complete 1", "admin", "Medium", "admin", 2, 1
+"Story", "Create index 2", "admin", "Medium", "admin", 1, 0.5
+"Story", "Create complete 2", "admin", "Medium", "admin", 1, 0.5
+"Story", "Create index 3", "admin", "Medium", "admin", 1, 0.5
+"Story", "Create complete 3", "admin", "Medium", "admin", 1, 0.5
+"Story", "Create Documentation", "admin", "Medium", "admin", 3, 1.5
+"Story", "Deploy in the remote develop repository", "admin", "Medium", "admin", 3, 1.5
+"Story", "Code review", "admin", "Medium", "admin", 2, 1
+"Story", "Module Editing", "admin", "Medium", "admin", 3, 1.5
+"Story", "Deploy in the stage repository", "admin", "Medium", "admin", 1, 0.5
+"Story", "Fix bugs", "admin", "Medium", "admin", 3, 1.5
+"Story", "Close tasks", "admin", "Medium", "admin", 0.5, 0.25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
